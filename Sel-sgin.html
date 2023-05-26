@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller_Sign_In_Form</title>
+    <link rel="stylesheet" href="Sel-sgin.css">
+    <script defer src="Sel-sgin.js"></script>
+</head>
+<body>
+    <div class="logo"></div>
+    <div class="container">
+        <div class="title">Login</div>
+        <br>
+        <form action="#">
+        <div class="user-details">
+            <div class="imgcontainer">
+                <img src="A logo 2.png" alt="Avatar" class="avatar">
+            </div>
+            <br>
+            <div class="input-box">
+                <span class="detials">User_Name</span>
+                <input id="User_text" type="text" placeholder="Enter Your User_name Here" required>
+            </div>
+            <div class="input-box">
+                <span class="detials">Password</span>
+                <input type="password" id="psw" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter Your Password Here" required>
+            </div>
+        </div>
+        <div class="button1">
+            <button onclick="validate()" type="submit" class="input1">Sign_in</button>
+            <br>
+            <br>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+            <span class="psw" style="float: right;"><a href="#">Forgot password?</a></span>
+        </div>
+        </form>
+    </div>
+  </body>
+</html>
