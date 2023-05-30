@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="C:\Users\AYUSH\Downloads\font-awesome-4.7.0\font-awesome-4.7.0\css\font-awesome.min.css"
+    />
+
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body>
+    <section id="header">
+      <a href="HP.html"><img id="logo" src="A logo 2.png" alt="Shopping" /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="HP.html">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Blog</a></li>
+          <li>
+            <a href="#"><i class="fa-regular fa-bag-shopping"></i></a>
+          </li>
+
+          <li><a id="logout" onclick="signOut()">Log-Out</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="main">
+      <div class="left-box">
+        <nav>
+          <a onclick="tabs(0)" class="tab active"
+            ><i class="fa fa-user" aria-hidden="true"></i
+          ></a>
+          <a onclick="tabs(1)" class="tab"
+            ><i class="fa fa-cube" aria-hidden="true"></i
+          ></a>
+          <a onclick="tabs(2)" class="tab"
+            ><i class="fa fa-address-card" aria-hidden="true"></i
+          ></a>
+          <a onclick="tabs(3)" class="tab"
+            ><i class="fa fa-credit-card-alt" aria-hidden="true"></i
+          ></a>
+        </nav>
+      </div>
+      <div class="right-box">
+        <div class="profile tabShow">
+          <h1>Personal Information</h1>
+          <h3>Full name</h3>
+          <input type="text" class="input" placeholder="Enter Full name" />
+          <h3>Gender</h3>
+          <input type="text" class="input" placeholder="Enter Gender" />
+          <h3>email-id</h3>
+          <input type="text" class="input" placeholder="email-id" />
+          <h3>Mobile number</h3>
+          <input type="text" class="input" placeholder="Enter Mobile no." />
+          <br />
+          <button type="submit" class="btn">UPDATE</button>
+        </div>
+        <div class="your_orders tabShow">
+          <h1>Your Orders</h1>
+        </div>
+        <div class="address tabShow">
+          <h1>Address details</h1>
+          <h3>Full name</h3>
+          <input type="text" class="input" />
+          <h3>Gender</h3>
+          <input type="text" class="input" />
+          <h3>email-id</h3>
+          <input type="text" class="input" />
+          <h3>Mobile number</h3>
+          <input type="text" class="input" />
+        </div>
+        <div class="card_details tabShow">
+          <h1>Card Details</h1>
+          <h3>Card Number</h3>
+          <input type="text" class="input" />
+          <h3>CVV</h3>
+          <input type="password" class="input" />
+          <h3>expiry date</h3>
+          <input type="date" class="input" />
+        </div>
+      </div>
+    </section>
+
+    <script src="profile.js"></script>
+    <!-- <script src="firebase.js"></script> -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyDbPXyCbCOJjzcyuv83DiCDOQ6we7UWW-8",
+        authDomain: "shopping-project-75280.firebaseapp.com",
+        projectId: "shopping-project-75280",
+        storageBucket: "shopping-project-75280.appspot.com",
+        messagingSenderId: "721785274820",
+        appId: "1:721785274820:web:bcccd4f4cd70351ddc2491",
+        measurementId: "G-1EYVF421XL",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth();
+
+      //----- Logout code start
+      document.getElementById("logout").addEventListener("click", function () {
+        signOut(auth)
+          .then(() => {
+            // Sign-out successful.
+            console.log("Sign-out successful.");
+            alert("Sign-out successful.");
+            document.getElementById("logout").style.display = "none";
+            window.location.assign("./HP.html");
+          })
+          .catch((error) => {
+            // An error happened.
+            console.log("An error happened.");
+          });
+      });
+      //----- End
+    </script>
+  </body>
+</html>
